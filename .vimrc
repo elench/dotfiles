@@ -28,6 +28,7 @@ filetype plugin on
 
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2 autoindent smarttab expandtab
+au BufNewFile,BufRead *.ejs set filetype=html
 "set mouse=a
 "set ttym=urxvt
 "set mousemodel=extend
@@ -67,11 +68,8 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 execute pathogen#infect()
 "
 "" cntrlp
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-"
-"" airline
-"":let g:airline_theme='badwolf'
-":let g:airline_theme='dark'
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_working_path_mode = 0
 
 " **************************************************************
 " COLOR SCHEME
@@ -87,10 +85,30 @@ highlight Normal ctermbg=None
 
 " *************************************************************
 " VIM-AIRLINE
-"let g:airline#extensions#whitespace#mixed_indent_algo = 1
+"
+let g:airline_theme='deus'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
 " *************************************************************
-" CTRL-P
-"let g:ctrlp_cmd = 'CtrlP'
-
-"set nowrap
