@@ -27,8 +27,9 @@ filetype on
 filetype plugin on
 
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType php setlocal shiftwidth=2 tabstop=2 autoindent smarttab expandtab
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 autoindent smarttab expandtab
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.vue set filetype=html
 "set mouse=a
 "set ttym=urxvt
 "set mousemodel=extend
@@ -63,13 +64,34 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " ************************************************************
 " PLUGINS
-
-" pathogen
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plug 'tomasr/molokai'
+Plug 'larsbs/vimterial_dark'
+Plug 'alvan/vim-closetag'
+call plug#end()
 "
 "" cntrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'c'
+
+" **************************************************************
+" VIM CLOSETAG
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 " **************************************************************
 " COLOR SCHEME
@@ -80,8 +102,10 @@ syntax on
 "colorscheme gruvbox
 "set background=dark
 colorscheme molokai
+"colorscheme vimterial_dark
+" colorscheme onedark
 "colorscheme Monokai-Refined
-highlight Normal ctermbg=None
+"highlight Normal ctermbg=None
 
 " *************************************************************
 " VIM-AIRLINE
