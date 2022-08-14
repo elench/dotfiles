@@ -24,7 +24,6 @@ Plug 'chriskempson/base16-vim'
 
 " General Dev
 Plug '/pboettch/vim-cmake-syntax'
-"Plug 'neovim/nvim-lsp'
 "Plug 'Shougo/deoplete-lsp'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -57,6 +56,9 @@ Plug 'Olical/conjure', {'tag': 'v4.2.0'}
 
 " C++
 "Plug 'deoplete-plugins/deoplete-clang'
+
+" Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateInaries' }
 
 
 call plug#end()
